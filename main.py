@@ -5,16 +5,19 @@ def cipherMat(plaintext, key):
     key = str(key)  # int to str casting
     length = len(key)  # length of column
     ciphertextList = plaintext.split(" ")  # removing the space in the text
-    plaintextC = ""
+    plaintextC = ""                        
     for i in range(len(ciphertextList)):
         plaintextC += ciphertextList[i]
 
     rows, cols = (math.ceil(len(plaintextC) / length), length)
     ciphertextMat = [[0 for i in range(cols)] for j in range(rows)]
+    countWord = 1
 
     for row in range(rows):
 
         for count in range(cols):
+            if countWord>len(plaintextC):
+                ciphertextMat[row][count] = "X"            #constant bit to pad
             ciphertextMat[row][count] = plaintextC[count + row * length]
 
     return ciphertextMat
