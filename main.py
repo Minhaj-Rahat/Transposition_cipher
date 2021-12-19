@@ -5,7 +5,7 @@ def cipherMat(plaintext, key):
     key = str(key)  # int to str casting
     length = len(key)  # length of column
     ciphertextList = plaintext.split(" ")  # removing the space in the text
-    plaintextC = ""                        
+    plaintextC = ""                        # hold the text without space
     for i in range(len(ciphertextList)):
         plaintextC += ciphertextList[i]
 
@@ -47,7 +47,7 @@ def dechiperMat(cipherText, key):
     length = len(key)  # length of column
     rows, cols = (math.ceil(len(cipherText) / length), length)
     deciphertextMat = [[0 for i in range(cols)] for j in range(rows)]
-    keyDict = {}
+    keyDict = {}                                         # the dictionary to hold the column numbers for respective keys
 
     for i in range(len(key)):
         keyDict[key[i]] = i
@@ -74,8 +74,8 @@ def decipherText(decipherMat, key):
     return deciphertext
 
 
-key = 4213
-text = "Thank You"
+key = 4213                               # given key
+text = "Thank You"                       # given plain text
 print("The plaintext is \"Thank You\"")
 print("The Cipher Matrix is:")
 cipher_mat = cipherMat(text, key)
