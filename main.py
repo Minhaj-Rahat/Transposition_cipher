@@ -43,7 +43,6 @@ def cipherMat(plaintext, key):
                 countWord+=1
             else:
                 ciphertextMat[row][count] = plaintextC[count + row * length]
-                print(countWord)
                 countWord+=1
 
     return ciphertextMat
