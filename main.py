@@ -105,7 +105,7 @@ def decipherText(decipherMat, key):
 
 key = 4213                               # given key
 text = "Thank You"                       # given plain text
-print("The plaintext is \"Thank You\"")
+print("The plaintext is " + text)
 print("The Cipher Matrix is:")
 cipher_mat = cipherMat(text, key)
 print(cipher_mat)
