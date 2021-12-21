@@ -20,6 +20,7 @@
 
 
 import math
+import find_word as fw
 
 
 def cipherMat(plaintext, key):
@@ -38,8 +39,12 @@ def cipherMat(plaintext, key):
 
         for count in range(cols):
             if countWord>len(plaintextC):
-                ciphertextMat[row][count] = "X"            #constant bit to pad
-            ciphertextMat[row][count] = plaintextC[count + row * length]
+                ciphertextMat[row][count] = "X"  #constant bit to pad
+                countWord+=1
+            else:
+                ciphertextMat[row][count] = plaintextC[count + row * length]
+                print(countWord)
+                countWord+=1
 
     return ciphertextMat
 
@@ -88,9 +93,13 @@ def decipherText(decipherMat, key):
     key = str(key)
     length = len(key)
     rows, cols = (len(decipherMat), length)
+
     for row in range(rows):
         for col in range(cols):
+            if decipherMat[row][col] == "X":
+                break
             deciphertext += decipherMat[row][col]
+
 
     return deciphertext
 
@@ -109,4 +118,7 @@ print(decipher_mat)
 decipher_text = decipherText(decipher_mat, key)
 print("The Deciphered Text is")
 print(decipher_text)
+print("The suggested words are as follows:")
+text = fw.find_words(decipher_text)
+print(text)
 
