@@ -17,4 +17,6 @@ python main.py
 
 - *decipherText(decipherMat, key)* takes the original matrix generated using *decipherMat()* and returns the plain text 
 
+- *find_words(deciphered_text)* takes the plain text without space and returns a list of suggested words from the text
+
 # Minhajul
